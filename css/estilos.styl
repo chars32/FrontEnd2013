@@ -3,6 +3,17 @@ gris_oscuro = #444
 grist_texto = #7A7A7A
 naranja = #DD4F24
 
+@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon.eot');
+	src:url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/icomoon.woff') format('woff'),
+		url('../fonts/icomoon.ttf') format('truetype'),
+		url('../fonts/icomoon.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
 body
     background #E8E8E8
     color gris_oscuro
@@ -41,6 +52,7 @@ header
 
 	.logo
 		border-right 1px solid azul
+		float left
 		width 60px
 
 		img
@@ -64,6 +76,13 @@ header
 			padding 0.2em 0.5em
 			text-decoration none
 			text-shadow 1px 1px 0px black
+
+			&:before
+				content "\e600"
+				display inline-block
+				font-family icomoon
+				margin 0 3px 0 0
+				text-shadow none
 
 		.titulo
 			font-size 18px
@@ -98,6 +117,13 @@ header
 			width 50%
 			z-index 0
 
+			&:after
+				content "\e602"
+				display block
+				font-family icomoon
+				margin 1px 0 0 1px
+				text-shadow 1px 1px 0px black
+
 nav
 	background azul
 	border-left 15px solid white
@@ -120,6 +146,9 @@ nav
 		overflow-x auto
 		white-space nowrap
 
+		&::-webkit-scrollbar
+			display none
+
 		li 
 			display inline-block
 
@@ -141,6 +170,7 @@ nav
 		border-radius 0 0 0.5em 0.5em
 		box-shadow 2px 2px 10px rgba(black, 0.5)
 		color grist_texto
+		margin-bottom 0.5em
 
 		a 
 			color naranja
@@ -159,7 +189,30 @@ nav
 					color white
 					margin 0 1em 0 0
 					padding 2px 5px
+					position relative
 					text-decoration none
+
+					&:after
+						bottom -0.3em				
+						border-left 5px solid transparent
+						border-right 5px solid transparent
+						border-top 5px solid gris_oscuro
+						content ""
+						left 0.7em
+						position absolute
+							
+			
+						
+
+				.estrellita
+					text-decoration none
+
+					&:after
+						color #FCB92D
+						content "\e601"
+						font-family "icomoon"
+						font-size 1.1em
+					
 
 			.votos
 				float left
@@ -168,11 +221,22 @@ nav
 				.up
 					text-decoration none
 
+					&:before
+						font-family "icomoon"
+						font-size 1.5em
+						vertical-align middle
+
 				.down 
 					color red
 
+					&:before
+						content "\e602"
+
 				.up
 					color green
+
+					&:before
+						content "\e603"
 
 		.descripcion	
 					
@@ -209,8 +273,28 @@ nav
 					vertical-align top
 					width 120px
 
-.left 
-	float left
+@media screen and (min-width: 768px)
 
-.right
-	float right
+	header
+		.titular
+			.publicar
+				font-size 1.1em
+				padding-left 3em
+				position relative
+
+				&:before
+					left 0
+					font-size 2.5em
+					position absolute
+					top -10px
+
+
+	.posts
+
+		.post
+			display inline-block
+			vertical-align top
+			width 48%
+
+			&:nth-child(odd)
+				margin-right 2%
