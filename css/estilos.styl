@@ -1,28 +1,31 @@
 azul = #22BCE0
-gris_oscuro = #444
-grist_texto = #7A7A7A
 naranja = #DD4F24
+gris_texto = #7A7A7A
+gris_oscuro = #444
 
 @font-face {
-	font-family: 'icomoon';
+	font-family: 'iconitos';
 	src:url('../fonts/icomoon.eot');
 	src:url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'),
-		url('../fonts/icomoon.woff') format('woff'),
 		url('../fonts/icomoon.ttf') format('truetype'),
+		url('../fonts/icomoon.woff') format('woff'),
 		url('../fonts/icomoon.svg#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
 
+a
+	color naranja
+
 body
-    background #E8E8E8
-    color gris_oscuro
-    font-family Arial
-    font-size 16px
+	background #E8E8E8
+	color gris_oscuro
+	font-family Arial
+	font-size 16px
 
 footer
 	background naranja
-	color rgba(white, 0.5)
+	color rgba(white,0.5)
 	padding 1em 0
 	text-align center
 	width 100%
@@ -32,14 +35,12 @@ footer
 		font-weight normal
 
 		strong
-			display block
+			display block 
 
 		.mejor
 			&:before
 			&:after
 				content " - "
-				
-			
 
 header
 	background gris_oscuro
@@ -48,7 +49,7 @@ header
 	overflow hidden
 	padding 0.5em
 	position relative
-	z-index 55
+	z-index 2
 
 	.logo
 		border-right 1px solid azul
@@ -80,7 +81,7 @@ header
 			&:before
 				content "\e600"
 				display inline-block
-				font-family icomoon
+				font-family "iconitos"
 				margin 0 3px 0 0
 				text-shadow none
 
@@ -93,17 +94,16 @@ header
 	.usuario
 		position absolute
 		right 10px
-		top 15px
+		top 10px
 
 		.avatar
-			margin 0 1em 0 0
+			margin 0 1.1em 0 0
 			position relative
 			z-index 69
 
 			img
 				border-radius 50%
-				width 45px
-
+				width 50px
 		.flechita
 			background naranja
 			color white
@@ -120,7 +120,7 @@ header
 			&:after
 				content "\e602"
 				display block
-				font-family icomoon
+				font-family "iconitos"
 				margin 1px 0 0 1px
 				text-shadow 1px 1px 0px black
 
@@ -149,7 +149,7 @@ nav
 		&::-webkit-scrollbar
 			display none
 
-		li 
+		li
 			display inline-block
 
 			a
@@ -160,7 +160,7 @@ nav
 				text-decoration none
 
 				&:hover
-					background rgba(black, 0.1)
+					background rgba(black,0.1)
 
 .posts
 	padding 0.5em
@@ -169,11 +169,8 @@ nav
 		background white
 		border-radius 0 0 0.5em 0.5em
 		box-shadow 2px 2px 10px rgba(black, 0.5)
-		color grist_texto
+		color gris_texto
 		margin-bottom 0.5em
-
-		a 
-			color naranja
 
 		.acciones
 			border-top 3px solid azul
@@ -189,20 +186,7 @@ nav
 					color white
 					margin 0 1em 0 0
 					padding 2px 5px
-					position relative
 					text-decoration none
-
-					&:after
-						bottom -0.3em				
-						border-left 5px solid transparent
-						border-right 5px solid transparent
-						border-top 5px solid gris_oscuro
-						content ""
-						left 0.7em
-						position absolute
-							
-			
-						
 
 				.estrellita
 					text-decoration none
@@ -210,9 +194,8 @@ nav
 					&:after
 						color #FCB92D
 						content "\e601"
-						font-family "icomoon"
+						font-family "iconitos"
 						font-size 1.1em
-					
 
 			.votos
 				float left
@@ -220,26 +203,22 @@ nav
 				.down
 				.up
 					text-decoration none
-
 					&:before
-						font-family "icomoon"
+						font-family "iconitos"
 						font-size 1.5em
 						vertical-align middle
-
-				.down 
+				.down
 					color red
-
 					&:before
 						content "\e602"
 
 				.up
 					color green
-
 					&:before
 						content "\e603"
 
-		.descripcion	
-					
+		.descripcion
+
 			.detalles
 				height 160px
 				margin-left 130px
@@ -247,17 +226,16 @@ nav
 				.autor
 					margin 0.5em 0 2em 0
 
-				.fecha 
+				.fecha
 					float right
 					margin 0 1em 0 0
 
-				.tag 
+				.tag
 					background azul
 					border-radius 0.5em
 					color white
 					padding 0.2em 0.5em
 					text-decoration none
-
 
 				.titulo
 					color gris_oscuro
@@ -268,6 +246,7 @@ nav
 
 			.imagen
 				float left
+
 				img
 					height 160px
 					vertical-align top
@@ -288,13 +267,10 @@ nav
 					position absolute
 					top -10px
 
-
 	.posts
-
 		.post
 			display inline-block
-			vertical-align top
 			width 48%
-
+			vertical-align top
 			&:nth-child(odd)
 				margin-right 2%
