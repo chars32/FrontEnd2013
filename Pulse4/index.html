@@ -2,10 +2,13 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximun-scale=1">
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1, maximun-scale=1">-->
+	<meta name="viewport" content="width=device-width, user-scalable=no">
 	<title>Puls4: Comunidad para gente atractiva y millonaria</title>
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/estilos.css">
+	<script src="js/jquery-2.0.3.min.js"></script>
+	<script src="js/formulario.js"></script>
 </head>
 <body>
 	<header>
@@ -50,6 +53,21 @@
 
 		</ul>
 	</nav>
+	<form action="">
+		<p>
+			<label for="titulo">Titulo</label>
+			<input placeholder = "Ingrese titulo" id="titulo" type="text" name="titulo">
+		</p>
+		<p>
+			<label for="autor">Autor</label>
+			<input placeholder = "Ingrese autor" id="autor" type="text" name="autor">
+		</p>
+		<p>
+			<label for="tag">Tag</label>
+			<input placeholder = "Ingrese tag" id="tag" type="text" name="tag">
+		</p>
+		<input type="submit" value="Publicar">
+	</form>
 	<section class="posts">
 		<article class="post">
 			<div class="descripcion">
@@ -300,5 +318,69 @@
 			</span>
 		</h3>
 	</footer>
+
+	<script>
+
+
+	//Asi es como se declaran y llaman funciones
+	//en javascript y en jQuery
+
+		//primero se declaran las funciones
+		function darBienvenida(){
+			alert('Bienvenido');
+		}
+
+		function hacerAlgoImportante(){
+			console.log('Estoy haciendo algo importante');
+		}
+/*
+	//Usando Javascript
+
+		//se crea una funcion la cual recibe tres parametros
+		//esta funcion verifica si el navegadro es IE, Chrome o Firefox
+		function atachar(obj, evento, funcion){
+			if(obj.addEventListener){
+				obj.addEventListener(evento, funcion);
+			} else {
+				obj.addEventListener('on'+evento, funcion);
+			}
+		}
+
+		//se llaman a las funciones para que se puedan visualizar
+		atachar(window, 'load', darBienvenida);
+		atachar(window, 'load', hacerAlgoImportante);
+	*/
+
+	//Usando jQuery
+	/*
+		$(window)
+			.on('load', darBienvenida)
+			.on('load', hacerAlgoImportante);
+	
+	// Otra manera mas corta para cargar jquery onload es:
+	$(function(){ //esta es la forma abreviada de cargar onload
+
+		//lamamos a la case publicar y cuando se de click sobre de
+		//ella disparamos funcion 'darBienvenida'
+		$('.publicar')
+			.on('click', darBienvenida)
+		//tambien se pueden declarar funciones
+			.on('click', function() {
+				console.log('Me hicieron click');
+			})
+
+		//y aqui especificamos que cuand se cargue la pagina se 
+		//dispare la funcion hacerAlgoImportante
+		$(window)
+			.on('load', hacerAlgoImportante);
+
+		//si queremos sacar un evento, este es la manera
+		//por ejemplo que no se muestre mas el cartel al dar click
+		//ojo las funciones tienen que ser declaradas como 'darBienvenida'
+		$('.publicar').off('click', darBienvenida);
+	});
+
+	*/
+	</script>
 </body>
 </html>
