@@ -65,16 +65,44 @@ $(function() {
 	}
 
 	//Closure devolviendo una funcion creada
-	function crearSizer(pixels){
-		return function(){
-			$('body').css('font-size', pixels+'px')
+		function crearSizer(pixels){
+			return function(){
+				$('body').css('font-size', pixels+'px')
+			}
 		}
-	}
 
-	$('.sizer').each(function(i, link){
-		var pixels = $(link).prop('hash').substring(1); //esto sirve para poder sacar el valor sin el simbolo "#"
-		$(link)
-			.css('font-size', pixels+'px') //aqui cambiamos el tamaño de las 'A' segun el valor de su href sin "#"
-			.on('click', crearSizer(pixels)); //cambiamos el tamaño del body con la funcion crearSizer, previamente definida
-	});
+		$('.sizer').each(function(i, link){
+			var pixels = $(link).prop('hash').substring(1); //esto sirve para poder sacar el valor sin el simbolo "#"
+			$(link)
+				.css('font-size', pixels+'px') //aqui cambiamos el tamaño de las 'A' segun el valor de su href sin "#"
+				.on('click', crearSizer(pixels)); //cambiamos el tamaño del body con la funcion crearSizer, previamente definida
+		});
+
+	//Privacidad del codigo
+		function crearContador(valorInicial){
+			var contador = valorInicial || 0;
+			return {    //-----------Estos son los closures -----------
+				up : function() {
+					return ++contador;
+				},
+				down : function() {
+					return --contador;
+				}       // ----------Aqui terminan closeres -----------
+			};
+		};
+
+		$('.total').each(function(i, elem) {
+			var contTotal = crearContador(elem.innerHTML); //INNERHTML sirve para tomar el valor embebido en el html por default
+			$(elem)
+				.siblings('.up')   //siblings son elementos que son hermanos en html5, dependen del mismo padre
+					.on('click', function(ev){
+						ev.preventDefault();
+						$(elem).html(contTotal.up());
+					})
+				.siblings('.down')
+					.on('click', function(ev){
+						ev.preventDefault();
+						$(elem).html(contTotal.down());
+					});
+		});
 });
