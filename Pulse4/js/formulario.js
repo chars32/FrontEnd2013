@@ -59,8 +59,22 @@ $(function() {
 		$('.posts').prepend($(template).fadeIn(function(){ 
 			$(this).css('display', 'inline-block');
 		}));
-		
+
 		$('input[type=text]').val('');
 		$('form').slideUp();
 	}
+
+	//Closure devolviendo una funcion creada
+	function crearSizer(pixels){
+		return function(){
+			$('body').css('font-size', pixels+'px')
+		}
+	}
+
+	$('.sizer').each(function(i, link){
+		var pixels = $(link).prop('hash').substring(1); //esto sirve para poder sacar el valor sin el simbolo "#"
+		$(link)
+			.css('font-size', pixels+'px') //aqui cambiamos el tamaño de las 'A' segun el valor de su href sin "#"
+			.on('click', crearSizer(pixels)); //cambiamos el tamaño del body con la funcion crearSizer, previamente definida
+	});
 });
